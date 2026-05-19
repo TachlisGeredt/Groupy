@@ -17,8 +17,8 @@ class Bots(base.Manager):
         response = self.session.get(self.url)
         return [Bot(self, **bot) for bot in response.data]
 
-    def create(self, name, group_id, avatar_url=None, callback_url=None,
-               dm_notification=None, **kwargs):
+    def create(self, name, group_id, avatar_url=None, callback_url=False,
+               dm_notification=False, **kwargs):
         """Create a new bot in a particular group.
 
         :param str name: bot name
